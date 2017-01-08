@@ -477,7 +477,7 @@ void CargarHechizos() {
 	/* ' */
 	/* '*************************************************** */
 
-	std::cout << "Cargando Hechizos." << std::endl;
+	//std::cout << "Cargando Hechizos." << std::endl;
 
 	int Hechizo;
 	std::shared_ptr<clsIniManager> Leer;
@@ -493,6 +493,7 @@ void CargarHechizos() {
 
 	/* 'Llena la lista */
 	for (Hechizo = (1); Hechizo <= (NumeroHechizos); Hechizo++) {
+		std::cout << "Cargando Hechizos: " << Hechizo << "/" << NumeroHechizos << "\r" << std::flush;
 		std::string hechizostr = "HECHIZO" + vb6::CStr(Hechizo);
 		Hechizos[Hechizo].Nombre = Leer->GetValue(hechizostr, "Nombre");
 		Hechizos[Hechizo].desc = Leer->GetValue(hechizostr, "Desc");
@@ -584,6 +585,7 @@ void CargarHechizos() {
 	}
 
 	Leer.reset();
+	std::cout << std::endl;
 
 	return;
 }
@@ -1539,7 +1541,7 @@ void CargarBackUp() {
 	/* ' */
 	/* '*************************************************** */
 
-	std::cout << "Cargando backup." << std::endl;
+	//std::cout << "Cargando backup." << std::endl;
 
 	int Map;
 	std::string tFileName;
@@ -1589,6 +1591,7 @@ void CargarBackUp() {
 
 		CargarMapa(Map, loadFromBackup);
 	}
+	std::cout << std::endl; 
 
 	return;
 }
@@ -1600,7 +1603,7 @@ void LoadMapData() {
 	/* ' */
 	/* '*************************************************** */
 
-	std::cout << "Cargando mapas..." << std::endl;
+	//std::cout << "Cargando mapas..." << std::endl;
 
 	LogMain("Cargando mapas...");
 
@@ -1635,6 +1638,7 @@ void LoadMapData() {
 	for (Map = (1); Map <= (NumMaps); Map++) {
 		CargarMapa(Map, false);
 	}
+	std::cout << std::endl; 
 
 	return;
 }
@@ -1659,6 +1663,7 @@ void CargarMapa(int Map, bool loadFromBackup) {
 	Leer.reset(new clsIniManager());
 
 	//std::string npcfile = GetDatPath(DATPATH::NPCs);
+	std::cout << "Cargando Mapas: " << Map << "/" << NumMaps << "\r" << std::flush;
 
 	{
 		std::ifstream mapfile;

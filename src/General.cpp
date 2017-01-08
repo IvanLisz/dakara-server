@@ -317,6 +317,7 @@ void Main() {
 
 	tInicioServer = vb6::GetTickCount();
 	InicializaEstadisticas();
+	std::cout << "Servidor Iniciado" << std::endl;
 
 }
 
@@ -506,6 +507,7 @@ void ResetUsersConnections() {
 }
 
 void InitMainTimers() {
+	std::cout << "Iniciando Timers ..." << std::endl;
 	TimersRegisterAll();
 }
 
